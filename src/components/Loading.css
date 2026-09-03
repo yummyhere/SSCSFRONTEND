@@ -1,0 +1,77 @@
+/* Loading Styles */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+  padding: var(--spacing-16) var(--spacing-4);
+}
+
+.loading-text {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Skeleton Loaders */
+
+.product-skeleton {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+}
+
+.skeleton-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  flex: 1;
+}
+
+.skeleton-title {
+  width: 100%;
+  height: 20px;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-category {
+  width: 60%;
+  height: 12px;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-price {
+  width: 50%;
+  height: 24px;
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-2);
+}
+
+.skeleton-button {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--radius-md);
+  margin-top: auto;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface-elevated) 25%,
+    var(--color-border) 50%,
+    var(--color-surface-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: pulse 1.5s infinite;
+}

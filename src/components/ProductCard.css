@@ -1,0 +1,217 @@
+/* ProductCard Styles */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base) var(--easing-ease-out);
+  box-shadow: var(--shadow-sm);
+}
+
+.product-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border);
+  transform: translateY(-2px);
+}
+
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base) var(--easing-ease-out);
+}
+
+.product-image-wrapper:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-surface-elevated), var(--color-border-light));
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.product-badge {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.05em;
+}
+
+.product-badge.badge-stock {
+  background-color: var(--color-error);
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+  gap: var(--spacing-3);
+}
+
+.product-name {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  line-height: var(--line-height-snug);
+  transition: color var(--transition-base) var(--easing-ease-out);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-name:hover {
+  color: var(--color-accent);
+}
+
+.product-category {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-pricing {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.product-original-price {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  text-decoration: line-through;
+}
+
+.product-final-price {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+}
+
+.stars {
+  color: var(--color-accent);
+  font-size: var(--font-size-base);
+}
+
+.rating-value {
+  color: var(--color-text-secondary);
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast) var(--easing-ease-out);
+  font-size: var(--font-size-lg);
+}
+
+.qty-btn:hover:not(:disabled) {
+  background-color: var(--color-surface);
+}
+
+.qty-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qty-input {
+  width: 40px;
+  border: none;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  padding: 0;
+}
+
+.qty-input:focus {
+  outline: none;
+}
+
+/* Remove number input spinner */
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qty-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.product-stock {
+  margin-top: auto;
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--color-border-light);
+}
+
+@media (max-width: 767px) {
+  .product-info {
+    padding: var(--spacing-3);
+  }
+
+  .product-name {
+    font-size: var(--font-size-sm);
+  }
+
+  .product-actions {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,114 @@
+/* Products Page Styles */
+
+.products-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-12);
+}
+
+.products-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--spacing-8);
+}
+
+@media (max-width: 767px) {
+  .products-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Filters Sidebar */
+
+.filters-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.filter-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.filter-option {
+  background: none;
+  border: none;
+  padding: var(--spacing-2) var(--spacing-3);
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-base) var(--easing-ease-out);
+  border-left: 3px solid transparent;
+}
+
+.filter-option:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-gray-100);
+}
+
+.filter-option.active {
+  color: var(--color-accent);
+  border-left-color: var(--color-accent);
+  background-color: var(--color-gray-50);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-12);
+  padding-top: var(--spacing-8);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.pagination-info {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  min-width: 100px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .filters-sidebar {
+    position: static;
+    top: auto;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
