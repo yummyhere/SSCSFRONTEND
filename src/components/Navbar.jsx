@@ -45,9 +45,14 @@ const Navbar = () => {
             </Link>
           )}
           {isAuthenticated && user?.role === 'admin' && (
-            <Link to="/admin" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
-              Admin
-            </Link>
+            <>
+              <Link to="/admin" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
+                Dashboard
+              </Link>
+              <Link to="/admin/products" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
+                Manage Products
+              </Link>
+            </>
           )}
         </div>
 

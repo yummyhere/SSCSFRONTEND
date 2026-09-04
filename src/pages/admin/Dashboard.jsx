@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Activity, ArrowRight, Box, CircleDollarSign, ClipboardList, Users } from 'lucide-react';
+import { Activity, ArrowRight, Box, CircleDollarSign, ClipboardList, Plus, Users } from 'lucide-react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
@@ -69,15 +69,39 @@ const AdminDashboard = () => {
               <h1 className="page-title">Admin Dashboard</h1>
               <p className="section-subtitle">Live overview from your MongoDB data</p>
             </div>
-            <Link to="/products" className="btn btn-outline btn-sm">View storefront <ArrowRight size={16} /></Link>
+            <div style={{ display: 'flex', gap: 'var(--spacing-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+              <Link to="/admin/products?new=true" className="btn btn-primary btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Plus size={16} /> Add Product
+              </Link>
+              <Link to="/admin/products" className="btn btn-outline btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <Box size={16} /> Manage Products
+              </Link>
+              <Link to="/products" className="btn btn-outline btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                Storefront <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
 
           {error && <div className="checkout-error">{error}</div>}
 
           {dashboard && <div className="grid grid-4">
             <div className="value-prop-card"><Users className="value-icon" /><h4>Total Users</h4><p>{dashboard.totalUsers}</p></div>
-            <div className="value-prop-card"><Box className="value-icon" /><h4>Total Products</h4><p>{dashboard.totalProducts}</p></div>
-            <div className="value-prop-card"><ClipboardList className="value-icon" /><h4>Total Orders</h4><p>{dashboard.totalOrders}</p></div>
+            <Link to="/admin/products" className="value-prop-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block', transition: 'transform 0.2s, box-shadow 0.2s' }}>
+              <Box className="value-icon" />
+              <h4>Total Products</h4>
+              <p>{dashboard.totalProducts}</p>
+              <span style={{ fontSize: '0.8rem', color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '6px', fontWeight: 600 }}>
+                Manage / Add <ArrowRight size={12} />
+              </span>
+            </Link>
+            <Link to="/admin/orders" className="value-prop-card" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+              <ClipboardList className="value-icon" />
+              <h4>Total Orders</h4>
+              <p>{dashboard.totalOrders}</p>
+              <span style={{ fontSize: '0.8rem', color: 'var(--color-primary)', display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '6px', fontWeight: 600 }}>
+                View Orders <ArrowRight size={12} />
+              </span>
+            </Link>
             <div className="value-prop-card"><CircleDollarSign className="value-icon" /><h4>Revenue</h4><p>${dashboard.totalRevenue}</p></div>
           </div>}
 
